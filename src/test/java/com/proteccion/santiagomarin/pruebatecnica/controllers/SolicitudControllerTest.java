@@ -50,13 +50,12 @@ class SolicitudControllerTest {
         TicketPriorizadoDTO dto2 = crearDtoConPrioridad(3500);
 
         /*when(repository.findAll()).thenReturn(List.of());*/
-        when(mapper.toDTO(any())).thenReturn(dto1, dto2);
-        when(service.calcularPrioridad(any())).thenReturn(5500, 3500);
+        when(this.mapper.toDTO(any())).thenReturn(dto1, dto2);
+        when(this.service.calcularPrioridad(any())).thenReturn(5500, 3500);
 
         // Act & Assert
-        mockMvc.perform(get("/api/tickets/prioritised"))
+        this.mockMvc.perform(get("/api/tickets/prioritised"))
             .andExpect(status().isOk())
-            .andExpect(jsonPath("$").isArray())
-            /*.andExpect(jsonPath("$.length()").value(2))*/;
+            .andExpect(jsonPath("$").isArray());
     }
 }
