@@ -2,6 +2,7 @@ package com.proteccion.santiagomarin.pruebatecnica.entities;
 
 import com.proteccion.santiagomarin.pruebatecnica.entities.utils.TipoSolicitud;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
