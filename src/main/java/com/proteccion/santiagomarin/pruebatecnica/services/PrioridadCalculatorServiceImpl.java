@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
 @Service
-public class PrioridadCalculatorServiceImpl implements PrioridadadCalculatorService{
+public class PrioridadCalculatorServiceImpl implements PrioridadCalculatorService {
     @Override
     public int calcularPrioridad(Solicitud solicitud) {
         int pesoTipo = getPesoTipo(solicitud.getTipo());    // 1000, 3000 o 5000
