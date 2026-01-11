@@ -15,6 +15,10 @@ public record UsuarioDTO(
 
     @NotBlank(message = "Correo es obligatorio")
     @Email(message = "Correo debe tener formato de correo válido válido")
-    String correo
+    String correo,
+
+    @NotBlank(message = "Contraseña es obligatoria")
+    @Size(min = 8, max = 100, message = "La contraseña debe tener al menos 8 caracteres")
+    String clave
 ) {
 }
