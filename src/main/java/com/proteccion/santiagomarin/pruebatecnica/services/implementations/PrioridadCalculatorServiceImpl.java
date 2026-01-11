@@ -1,7 +1,8 @@
-package com.proteccion.santiagomarin.pruebatecnica.services;
+package com.proteccion.santiagomarin.pruebatecnica.services.implementations;
 
 import com.proteccion.santiagomarin.pruebatecnica.entities.Solicitud;
 import com.proteccion.santiagomarin.pruebatecnica.entities.utils.TipoSolicitud;
+import com.proteccion.santiagomarin.pruebatecnica.services.abstractions.PrioridadCalculatorService;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
