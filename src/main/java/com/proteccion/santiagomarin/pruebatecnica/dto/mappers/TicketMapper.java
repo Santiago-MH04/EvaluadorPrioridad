@@ -1,6 +1,6 @@
 package com.proteccion.santiagomarin.pruebatecnica.dto.mappers;
 
-import com.proteccion.santiagomarin.pruebatecnica.dto.NuevaSolicitudDTO;
+import com.proteccion.santiagomarin.pruebatecnica.dto.SolicitudDTO;
 import com.proteccion.santiagomarin.pruebatecnica.dto.TicketPriorizadoDTO;
 import com.proteccion.santiagomarin.pruebatecnica.entities.Solicitud;
 import org.mapstruct.Mapper;
@@ -14,7 +14,4 @@ public interface TicketMapper {
     )
     @Mapping(target = "prioridadCalculada", ignore = true)
     TicketPriorizadoDTO toDTO(Solicitud solicitud);
-
-    NuevaSolicitudDTO toNuevaDTO(Solicitud solicitud);
-    Solicitud toEntity(NuevaSolicitudDTO dto);
 }

@@ -1,11 +1,12 @@
 package com.proteccion.santiagomarin.pruebatecnica.controllers;
 
-import com.proteccion.santiagomarin.pruebatecnica.dto.NuevaSolicitudDTO;
+import com.proteccion.santiagomarin.pruebatecnica.dto.SolicitudDTO;
 import com.proteccion.santiagomarin.pruebatecnica.dto.TicketPriorizadoDTO;
+import com.proteccion.santiagomarin.pruebatecnica.dto.mappers.SolicitudMapper;
 import com.proteccion.santiagomarin.pruebatecnica.dto.mappers.TicketMapper;
 import com.proteccion.santiagomarin.pruebatecnica.entities.Solicitud;
-import com.proteccion.santiagomarin.pruebatecnica.repositories.SolicitudRepository;
-import com.proteccion.santiagomarin.pruebatecnica.services.PrioridadCalculatorService;
+import com.proteccion.santiagomarin.pruebatecnica.services.abstractions.PrioridadCalculatorService;
+import com.proteccion.santiagomarin.pruebatecnica.services.abstractions.SolicitudService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -14,23 +15,23 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/tickets")
 @RequiredArgsConstructor
 public class SolicitudController {
-    private final SolicitudRepository repoSolicitud;
+    private final SolicitudService solicitudService;
     private final PrioridadCalculatorService prioridadCalculatorService;
     private final TicketMapper ticketMapper;
+    private final SolicitudMapper solicitudMapper;
 
     @GetMapping("/prioritised")
     public ResponseEntity<List<TicketPriorizadoDTO>> getTicketsPriorizados() {
         return ResponseEntity.ok(
-            this.repoSolicitud.findAll().stream()
+            this.solicitudService.findAll().stream()
                 .map(solicitud -> {
                     TicketPriorizadoDTO dto = ticketMapper.toDTO(solicitud);
-                    dto.setPrioridadCalculada(this.prioridadCalculatorService.calcularPrioridad(solicitud));
+                        dto.setPrioridadCalculada(this.prioridadCalculatorService.calcularPrioridad(solicitud));
                     return dto;
                 })
             .sorted(Comparator.comparingInt(TicketPriorizadoDTO::getPrioridadCalculada).reversed())
@@ -40,14 +41,15 @@ public class SolicitudController {
 
     @PostMapping("/crear")
     public ResponseEntity<TicketPriorizadoDTO> crearSolicitud(
-            @Valid @RequestBody NuevaSolicitudDTO nuevaSolicitud
+        @Valid @RequestBody SolicitudDTO nuevaSolicitud
     ) {
-        Solicitud entity = this.ticketMapper.toEntity(nuevaSolicitud);
-        Solicitud saved = this.repoSolicitud.save(entity);
+        Solicitud saved = this.solicitudService.save(
+            this.solicitudMapper.toEntity(nuevaSolicitud)
+        );
 
         int prioridad = this.prioridadCalculatorService.calcularPrioridad(saved);
         TicketPriorizadoDTO response = this.ticketMapper.toDTO(saved);
-        response.setPrioridadCalculada(prioridad);
+            response.setPrioridadCalculada(prioridad);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }

@@ -2,14 +2,19 @@ package com.proteccion.santiagomarin.pruebatecnica.entities;
 
 import com.proteccion.santiagomarin.pruebatecnica.entities.utils.TipoSolicitud;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "solicitudes")
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Solicitud {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
