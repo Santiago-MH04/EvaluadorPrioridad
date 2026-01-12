@@ -4,6 +4,8 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
+import java.util.List;
+
 public record UsuarioDTO(
     @NotBlank(message = "nombre es obligatorio")
     @Size(min = 2, max = 50, message = "Nombre debe tener entre 2 y 50 caracteres")
@@ -19,6 +21,8 @@ public record UsuarioDTO(
 
     @NotBlank(message = "Contraseña es obligatoria")
     @Size(min = 8, max = 100, message = "La contraseña debe tener al menos 8 caracteres")
-    String clave
+    String clave,
+
+    List<RoleDTO> roles
 ) {
 }
