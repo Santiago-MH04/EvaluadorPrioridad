@@ -1,4 +1,4 @@
-package com.proteccion.santiagomarin.pruebatecnica.dto;
+package com.proteccion.santiagomarin.pruebatecnica.dto.dtoRequests;
 
 import com.proteccion.santiagomarin.pruebatecnica.entities.utils.TipoSolicitud;
 import jakarta.validation.constraints.Email;
