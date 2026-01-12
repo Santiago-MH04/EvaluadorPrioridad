@@ -1,6 +1,6 @@
 package com.proteccion.santiagomarin.pruebatecnica.dto.mappers;
 
-import com.proteccion.santiagomarin.pruebatecnica.dto.SolicitudDTO;
+import com.proteccion.santiagomarin.pruebatecnica.dto.dtoRequests.SolicitudDTO;
 import com.proteccion.santiagomarin.pruebatecnica.entities.Solicitud;
 import com.proteccion.santiagomarin.pruebatecnica.entities.Usuario;
 import com.proteccion.santiagomarin.pruebatecnica.repositories.UsuarioRepository;

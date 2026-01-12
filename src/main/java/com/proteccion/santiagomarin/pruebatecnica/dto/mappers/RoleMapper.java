@@ -1,6 +1,6 @@
 package com.proteccion.santiagomarin.pruebatecnica.dto.mappers;
 
-import com.proteccion.santiagomarin.pruebatecnica.dto.RoleDTO;
+import com.proteccion.santiagomarin.pruebatecnica.dto.dtoRequests.RoleDTO;
 import com.proteccion.santiagomarin.pruebatecnica.entities.Role;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

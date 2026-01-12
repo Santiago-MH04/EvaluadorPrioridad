@@ -1,6 +1,6 @@
 package com.proteccion.santiagomarin.pruebatecnica.dto.mappers;
 
-import com.proteccion.santiagomarin.pruebatecnica.dto.UsuarioDTO;
+import com.proteccion.santiagomarin.pruebatecnica.dto.dtoRequests.UsuarioDTO;
 import com.proteccion.santiagomarin.pruebatecnica.entities.Usuario;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

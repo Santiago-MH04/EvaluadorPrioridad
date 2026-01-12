@@ -1,7 +1,7 @@
 package com.proteccion.santiagomarin.pruebatecnica.controllers;
 
-import com.proteccion.santiagomarin.pruebatecnica.dto.SolicitudDTO;
-import com.proteccion.santiagomarin.pruebatecnica.dto.TicketPriorizadoDTO;
+import com.proteccion.santiagomarin.pruebatecnica.dto.dtoRequests.SolicitudDTO;
+import com.proteccion.santiagomarin.pruebatecnica.dto.dtoRequests.TicketPriorizadoDTO;
 import com.proteccion.santiagomarin.pruebatecnica.dto.mappers.SolicitudMapper;
 import com.proteccion.santiagomarin.pruebatecnica.dto.mappers.TicketMapper;
 import com.proteccion.santiagomarin.pruebatecnica.entities.Solicitud;

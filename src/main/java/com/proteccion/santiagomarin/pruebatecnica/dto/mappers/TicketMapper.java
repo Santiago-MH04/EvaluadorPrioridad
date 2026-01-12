@@ -1,7 +1,6 @@
 package com.proteccion.santiagomarin.pruebatecnica.dto.mappers;
 
-import com.proteccion.santiagomarin.pruebatecnica.dto.SolicitudDTO;
-import com.proteccion.santiagomarin.pruebatecnica.dto.TicketPriorizadoDTO;
+import com.proteccion.santiagomarin.pruebatecnica.dto.dtoRequests.TicketPriorizadoDTO;
 import com.proteccion.santiagomarin.pruebatecnica.entities.Solicitud;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

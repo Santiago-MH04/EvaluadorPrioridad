@@ -23,9 +23,9 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     @Transactional(readOnly = true)
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Usuario usuarioCargado = this.repoUsuario.findByCorreo(username)
-            .orElseThrow(() -> new UsernameNotFoundException(String.format("Usuario %s no encontrado", username)));
+    public UserDetails loadUserByUsername(String correo) throws UsernameNotFoundException {
+        Usuario usuarioCargado = this.repoUsuario.findByCorreo(correo)
+            .orElseThrow(() -> new UsernameNotFoundException(String.format("Usuario %s no encontrado", correo)));
 
         List<GrantedAuthority> authorities = usuarioCargado.getRoles().stream()
             .map(role -> new SimpleGrantedAuthority(role.getNombre().name()))

@@ -1,6 +1,6 @@
 package com.proteccion.santiagomarin.pruebatecnica.controllers;
 
-import com.proteccion.santiagomarin.pruebatecnica.dto.UsuarioDTO;
+import com.proteccion.santiagomarin.pruebatecnica.dto.dtoRequests.UsuarioDTO;
 import com.proteccion.santiagomarin.pruebatecnica.dto.mappers.UsuarioMapper;
 import com.proteccion.santiagomarin.pruebatecnica.entities.Usuario;
 import com.proteccion.santiagomarin.pruebatecnica.services.abstractions.UsuarioService;
